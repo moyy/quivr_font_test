@@ -14,12 +14,13 @@
 
 ## 1. 部署
 
++ Node.js: TLS 稳定版本 (本人 用的 v18.16.0)
+
 ### 1.1. 安装
 
 ``` bash
 
 npm install
-npm install -g http-server
 
 ```
 
@@ -33,23 +34,15 @@ npm install -g http-server
 |`SUPABASE_URL`|Supabase 服务器，用于 注册/登录|
 |`SUPABASE_ANON_KEY`|Quivr，用于 创建 Supabase 客户端|
 
-构建 & 监听 修改代码 重构：
+构建 & 监听 服务器：
 
 ``` bash
 npm run start
 ```
 
-服务器：
+浏览器启动: http://localhost:1234
 
-``` bash
-
-cd dist
-
-http-server
-
-```
-
-浏览器启动: http://localhost:8080
+所有的按钮运行结果，都在控制台中，请按 F12 控制台查看
 
 ## 2. HTTP API
 
