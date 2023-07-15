@@ -9,7 +9,7 @@ export interface BrainInfo {
 }
 
 // 取 现有的大脑
-export const get_brains = async () => {
+export const get_brains = async (): Promise<BrainInfo[]> => {
     if (!current_login_user) {
         throw new Error(`get_brains failed, current_login_user is null`);
     }
@@ -26,11 +26,13 @@ export const get_brains = async () => {
         }
     });
 
-    return await response.json();
+    let r = await response.json();
+
+    return r.brains;
 }
 
 // 取 默认大脑
-export const get_default_brain = async () => {
+export const get_default_brain = async (): Promise<BrainInfo> => {
     if (!current_login_user) {
         throw new Error(`get_default_brain failed, current_login_user is null`);
     }
@@ -51,7 +53,7 @@ export const get_default_brain = async () => {
 }
 
 // 取 默认大脑
-export const get_brain_by_id = async (id: string) => {
+export const get_brain_by_id = async (id: string): Promise<BrainInfo> => {
     if (!current_login_user) {
         throw new Error(`get_brain_by_id failed, current_login_user is null`);
     }
@@ -72,7 +74,7 @@ export const get_brain_by_id = async (id: string) => {
 }
 
 // 新建 Brain
-export const create_brain = async (name: string) => {
+export const create_brain = async (name: string): Promise<BrainInfo> => {
     if (!current_login_user) {
         throw new Error(`create_brain failed, current_login_user is null`);
     }
@@ -87,7 +89,7 @@ export const create_brain = async (name: string) => {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({name}),
+        body: JSON.stringify({ name }),
     });
 
     return await response.json();

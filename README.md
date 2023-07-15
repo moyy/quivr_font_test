@@ -6,14 +6,15 @@
     - [2.1. app.ts](#21-appts)
     - [2.2. user.ts](#22-userts)
     - [2.3. brain.ts](#23-braints)
-    - [2.4. `TODO` file.ts](#24-todo-filets)
-    - [2.5. `TODO` crawl.ts](#25-todo-crawlts)
-    - [2.6. `TODO` chat.ts](#26-todo-chatts)
+    - [2.4. file.ts](#24-filets)
+    - [2.5. chat.ts](#25-chatts)
+    - [2.6. `TODO` crawl.ts](#26-todo-crawlts)
 
 # Quivr 前端 实验
 
 ## 1. 部署
 
++ Quivr 版本：本文档 API 对应的 Quivr 版本为 v0.0.34
 + Node.js: TLS 稳定版本 (本人 用的 v18.16.0)
 
 ### 1.1. 安装
@@ -44,9 +45,25 @@ npm run start
 
 所有的按钮运行结果，都在控制台中，请按 F12 控制台查看
 
+注意：（以后可以自己摸索，因为有些顺序关联，所以）第一次运行的时候，操作顺序依次是：
+
++ 邮箱，密码
++ 登录 按钮
++ 创建 Brain
++ 选择文件 并 上传（尽量上传一个小文件）
++ 创建新对话
++ 添加新问题（问题写死在 src/chat.ts 中：“你现在有哪些文章？”）
++ 取对话历史
+
+![](documents/images/20230715183534.png)
+
 ## 2. HTTP API
 
+所有 API 参数 和 返回值 看 对应的 ts 文件
+
 ### 2.1. app.ts
+
+主要是 调用 dom 元素的 监听，和 每个 src/*.ts 连起来；
 
 |API|方法|作用|
 |--|--|--|
@@ -72,20 +89,28 @@ npm run start
 |brains/{brain_id}|DELETE|取id指定的大脑|
 |/brains/|POST|创建大脑，body = JSON-字符串|
 
-### 2.4. `TODO` file.ts
+### 2.4. file.ts
 
-
-|API|方法|作用|
-|--|--|--|
-||||
-
-### 2.5. `TODO` crawl.ts
+Upload & Explore
 
 |API|方法|作用|
 |--|--|--|
-||||
+|/upload|POST||
+|/explore|GET||
+|/explore/{file_name}|GET||
+|/explore/{file_name}|DELETE||
 
-### 2.6. `TODO` chat.ts
+### 2.5. chat.ts
+
+|API|方法|作用|
+|--|--|--|
+|/chat|GET||
+|/chat/{chat_id}|DELETE||
+|/chat/{chat_id}/history|GET||
+|/chat|POST||
+|/chat/{chat_id}/question|POST||
+
+### 2.6. `TODO` crawl.ts
 
 |API|方法|作用|
 |--|--|--|

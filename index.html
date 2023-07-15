@@ -40,18 +40,37 @@
             <input type="password" id="password" placeholder="密码">
         </div>
         <div style="width: 100%;justify-content:space-around;display: flex;">
-            <button id="register">注册</button>
-            <button id="login">登录</button>
-            <button id="user">用户信息</button>
+            <input type="button" id="register" value="注册"></input>
+            <input type="button" id="login" value="登录"></input>
+            <input type="button" id="user" value="用户信息"></input>
         </div>
     </div>
     <div class="group" style="display: flex; flex-direction: column;">
-        <button id="get_brains">取所有Brain</button>
-        <button id="get_default_brain">取默认 Brain</button>
-        <button id="create_brain">创建 Brain</button>
-        <button id="get_brain_by_id">取特定ID的 Brain</button>
-        <button id="delete_brain">删除 特定id 的 Brain</button>
-    </div>    
+        <input type="button" id="get_brains" value="取所有Brain"></input>
+        <input type="button" id="get_default_brain" value="取默认 Brain"></input>
+        <input type="button" id="create_brain" value="创建 Brain"></input>
+        <input type="button" id="get_brain_by_id" value="取特定ID的 Brain"></input>
+        <input type="button" id="delete_brain" value="删除 特定id 的 Brain"></input>
+    </div>
+    <div class="group" style="display: flex; flex-direction: column;">
+        <form id="uploadForm">
+            <input id="select_file" type="file" name="uploadFile">
+            <input id="upload_file" type="button" value="上传">
+        </form>
+    </div>
+    <div class="group" style="display: flex; flex-direction: column;">
+        <input id="explore_all" type="button" value="取所有文件"></input>
+        <input id="explore_file" type="button" value="取特定文件"></input>
+        <input id="explore_delete" type="button" value="删除特定文件"></input>
+    </div>
+    <div class="group" style="display: flex; flex-direction: column;">
+        <input id="get_chats" type="button" value="取所有对话"></input>
+        <input id="create_chat" type="button" value="创建新对话"></input>
+        <input id="delete_chat" type="button" value="删除特定对话"></input>
+        <input id="get_chat_history" type="button" value="取对话历史"></input>
+        <input id="add_question" type="button" value="添加新问题"></input>
+    </div>
+
     <script type="module" src="./src/app.ts"></script>
 </body>
 
